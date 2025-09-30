@@ -3,10 +3,10 @@ import mainStyles from "../assets/css/Main.module.css";
 import Navbar from "../components/layouts/Navbar";
 import Footer from "../components/layouts/Footer";
 
-function Home() {
+function Home(props) {
   return (
     <>
-      <Navbar />
+      <Navbar routes={props.routes} setRoutes={props.setRoutes} />
       <div style={{ minHight: "80vh" }}>
         <div className={mainStyles.homePage}>
           <h1>Welcome to My website</h1>

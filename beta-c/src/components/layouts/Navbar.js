@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "../../assets/svg/logo.svg";
 import NavbarStyles from "../../assets/css/Navbar.module.css";
-function Navbar() {
+function Navbar(props) {
   return (
     <nav className={NavbarStyles.navbar}>
       <div className={NavbarStyles.logo}>
@@ -9,10 +9,22 @@ function Navbar() {
       </div>
       <ul className={NavbarStyles.navLinks}>
         <li>
-          <a href="/">Home</a>
+          <a
+            onClick={() => {
+              props.setRoutes("/");
+            }}
+          >
+            Home
+          </a>
         </li>
         <li>
-          <a href="/">About</a>
+          <a
+            onClick={() => {
+              props.setRoutes("/about");
+            }}
+          >
+            About
+          </a>
         </li>
       </ul>
     </nav>

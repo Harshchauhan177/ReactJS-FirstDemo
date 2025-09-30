@@ -15,10 +15,3 @@
   color: #555;
   line-height: 1.5;
 }
-.aboutPage {
-  min-height: 85.5vh;
-  padding: 2rem;
-  max-width: 800px;
-  margin: 0 auto;
-  background-color: red;
-}
