@@ -1,7 +1,14 @@
 import React from "react";
 import logo from "../../assets/svg/logo.svg";
 import NavbarStyles from "../../assets/css/Navbar.module.css";
+import { Link, useNavigate } from "react-router-dom";
 function Navbar() {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/");
+  };
+
   return (
     <nav className={NavbarStyles.navbar}>
       <div className={NavbarStyles.logo}>
@@ -9,10 +16,10 @@ function Navbar() {
       </div>
       <ul className={NavbarStyles.navLinks}>
         <li>
-          <a href="/">Home</a>
+          <button onClick={handleClick}>Home</button>
         </li>
         <li>
-          <a href="/">About</a>
+          <Link to="/about">About</Link>
         </li>
       </ul>
     </nav>
