@@ -1,0 +1,24 @@
+.homePage {
+  min-height: 85.5vh;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.homePage h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.homePage p {
+  font-size: 1.2rem;
+  color: #555;
+  line-height: 1.5;
+}
+.aboutPage {
+  min-height: 85.5vh;
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: red;
+}
