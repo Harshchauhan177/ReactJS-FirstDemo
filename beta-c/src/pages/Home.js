@@ -5,11 +5,17 @@ import Footer from "../components/layouts/Footer";
 
 function Home() {
   const [name, setName] = useState("");
+  const [nameError, setNameError] = useState(null);
   const [email, setEmail] = useState("");
   const [options, setOptions] = useState("Mango");
 
   const handelSubmit = (event) => {
     event.preventDefault();
+    if (name.length > 10) {
+      setNameError("Please enter less than 10 characters");
+    } else {
+      setNameError(null);
+    }
     console.log("Name:", name);
     console.log("Email:", email);
     console.log("Options:", options);
@@ -33,9 +39,17 @@ function Home() {
                 value={name}
                 onChange={(event) => {
                   setName(event.target.value);
+                  if (name.length > 10) {
+                    setNameError("Please enter less than 10 characters");
+                  } else {
+                    setNameError(null);
+                  }
                 }}
               />
             </label>
+            {nameError != null ? (
+              <p style={{ color: "red" }}>{nameError}</p>
+            ) : null}
             <br />
             <br />
             <label>
