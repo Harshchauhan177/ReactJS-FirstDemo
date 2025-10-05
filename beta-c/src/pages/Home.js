@@ -1,18 +1,17 @@
-import React, { useState } from "react";
+import React, { useRef } from "react";
 import mainStyles from "../assets/css/Main.module.css";
 import Navbar from "../components/layouts/Navbar";
 import Footer from "../components/layouts/Footer";
 
 function Home() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [options, setOptions] = useState("Mango");
-
+  const name = useRef(null);
+  const email = useRef(null);
+  const options = useRef(null);
   const handelSubmit = (event) => {
     event.preventDefault();
-    console.log("Name:", name);
-    console.log("Email:", email);
-    console.log("Options:", options);
+    console.log("Name:", name.current.value);
+    console.log("Email:", email.current.value);
+    console.log("Selected Option:", options.current.value);
   };
 
   return (
@@ -28,36 +27,19 @@ function Home() {
           <form onSubmit={handelSubmit}>
             <label>
               Name:
-              <input
-                type="text"
-                value={name}
-                onChange={(event) => {
-                  setName(event.target.value);
-                }}
-              />
+              <input ref={name} type="text" />
             </label>
             <br />
             <br />
             <label>
               Email:
-              <input
-                type="email"
-                value={email}
-                onChange={(event) => {
-                  setEmail(event.target.value);
-                }}
-              />
+              <input ref={email} type="email" />
             </label>
             <br />
             <br />
             <label>
               Select Option:
-              <select
-                value={options}
-                onChange={(event) => {
-                  setOptions(event.target.value);
-                }}
-              >
+              <select ref={options}>
                 <option value="Mango">Mango</option>
                 <option value="Banana">Banana</option>
                 <option value="Apple">Apple</option>
