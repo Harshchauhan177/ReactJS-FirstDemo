@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import mainStyles from "../assets/css/Main.module.css";
 import Navbar from "../components/layouts/Navbar";
 import Footer from "../components/layouts/Footer";
+import { MyContext } from "../App";
 function About() {
+  const { contextState } = useContext(MyContext);
   return (
     <>
       <Navbar />
@@ -14,6 +16,9 @@ function About() {
           <p>
             This is a simple <b>About page</b>{" "}
           </p>
+
+          <p>{contextState.name}</p>
+          <p>{contextState.email}</p>
         </div>
       </div>
       <Footer />
