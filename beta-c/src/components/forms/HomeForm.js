@@ -1,16 +1,26 @@
-import React, { useContext } from "react";
+import React, { useCallback, useMemo, useState } from "react";
 import mainStyles from "../../assets/css/Main.module.css";
-import { MyContext } from "../../App";
-import { useNavigate } from "react-router-dom";
 function HomeForm() {
   //   const [name, setName] = useState("");
   //   const [email, setEmail] = useState("");
-  const Navigate = useNavigate();
-  const { contextState, setContextState } = useContext(MyContext);
-  const handelSubmit = (event) => {
-    event.preventDefault();
-    Navigate("/about");
-  };
+  const [count, setCount] = useState(0);
+  // const [count2, setCount2] = useState(0);
+
+  // const handelClick = useCallback(() => {
+  //   setCount(count + 1);
+  // }, [count2]);
+
+  const expensiveValue = useMemo(() => {
+    let result = 0;
+    for (let i = 0; i < 1000000000; i++) {
+      result += i;
+    }
+    return result;
+  }, []);
+
+  const handelClick = useCallback(() => {
+    setCount(count + 1);
+  }, [count]);
 
   return (
     <div style={{ minHight: "80vh" }}>
@@ -20,7 +30,7 @@ function HomeForm() {
           This is a simple React application using Vite as the build tool. hi
         </p>
 
-        <form onSubmit={handelSubmit}>
+        {/* <form onSubmit={handelSubmit}>
           <label>
             Name:
             <input
@@ -46,7 +56,12 @@ function HomeForm() {
           <br />
           <br />
           <button type="submit">Submit</button>
-        </form>
+        </form> */}
+
+        <p>value is: {expensiveValue}</p>
+
+        <h2>{count}</h2>
+        <button onClick={handelClick}>Click me</button>
       </div>
     </div>
   );
