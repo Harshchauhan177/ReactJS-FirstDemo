@@ -1,21 +1,19 @@
-import { createContext, useState } from "react";
 import "./App.css";
+import ContextReducer from "./components/layouts/ContextReducer";
 import About from "./pages/About";
 import Home from "./pages/Home";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-export const MyContext = createContext();
 function App() {
-  const [contextState, setContextState] = useState({ name: "", email: "" });
   return (
-    <MyContext.Provider value={{ contextState, setContextState }}>
+    <ContextReducer>
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
         </Routes>
       </Router>
-    </MyContext.Provider>
+    </ContextReducer>
   );
 }
 

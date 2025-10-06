@@ -1,24 +1,12 @@
-import React, { useReducer } from "react";
+import React, { useContext } from "react";
 import mainStyles from "../assets/css/Main.module.css";
 import Navbar from "../components/layouts/Navbar";
 import Footer from "../components/layouts/Footer";
+import { MyContext } from "../components/layouts/ContextReducer";
 // import HomeForm from "../components/forms/HomeForm";
 
-const reducer = (state, action) => {
-  switch (action.type) {
-    case "increment":
-      return state + 1;
-    case "decrement":
-      return state - 1;
-    case "reset":
-      return 0;
-    default:
-      return state;
-  }
-};
-
 function Home() {
-  const [count, dispatch] = useReducer(reducer, 0);
+  const [count, dispatch] = useContext(MyContext);
 
   return (
     <>
